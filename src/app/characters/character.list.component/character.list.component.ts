@@ -5,9 +5,7 @@ import { Subscription } from 'rxjs';
 import { Character } from 'src/app/models/character';
 import { AppStateService } from 'src/app/services/app.state.service';
 import { DataService } from 'src/app/services/data.service';
-import { CharacterDetailComponent } from '../character.detail.modal/character.detail.modal.component';
-import { CharacterSnackbarComponent } from '../character.snackbar/character.snackbar.component';
-import { EditCharacterModalComponent } from '../edit.character.modal/edit.character.modal.component';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-character-list',
@@ -26,6 +24,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
     private state: AppStateService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
+    private uiService: UiService,
   ) {}
 
   ngOnInit() {
@@ -80,12 +79,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   openEditModal(character: Character): void {
-    const dialogRef = this.dialog.open(EditCharacterModalComponent, {
-      data: character,
-    });
-
-    // Añadir snack-bar
-    dialogRef.afterClosed().subscribe((result) => {
+    this.uiService.openEditModal(character).subscribe((result) => {
       if (result) {
         this.openSnackBar('Changes successfully applied', 1);
       }
@@ -94,9 +88,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   openDetailModal(character: Character): void {
-    const dialogRef = this.dialog.open(CharacterDetailComponent, {
-      data: character,
-    });
+    this.uiService.openDetailModal(character);
   }
 
   editCharacter(editedCharacter: Character): void {
@@ -104,9 +96,6 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   }
 
   openSnackBar(message: string, durationInSeconds: number) {
-    this.snackBar.openFromComponent(CharacterSnackbarComponent, {
-      duration: durationInSeconds * 1000,
-      data: message,
-    });
+    this.uiService.openSnackBar(message, durationInSeconds);
   }
 }
