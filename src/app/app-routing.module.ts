@@ -8,7 +8,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./characters/characters.module').then((m) => m.CharactersModule),
   },
-  { path: '', redirectTo: '/characters', pathMatch: 'full' },
+  { path: '', redirectTo: 'characters', pathMatch: 'full' },
+  {
+    path: 'characters',
+    loadChildren: () =>
+      import('./characters/characters.module').then((m) => m.CharactersModule),
+  },
   { path: 'error', component: ErrorPageComponent },
   { path: '**', redirectTo: '/error', pathMatch: 'full' },
 ];

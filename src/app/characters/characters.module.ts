@@ -10,24 +10,29 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CharacterCardComponent } from './character.card.component/character.card.component';
-import { CharacterDetailComponent } from './character.detail.modal/character.detail.modal.component';
+import { CharacterDetailComponent } from './character.detail.modal.component/character.detail.modal.component';
+import { EditCharacterModalComponent } from './character.edit.modal.component/edit.character.modal.component';
 import { CharacterListComponent } from './character.list.component/character.list.component';
-import { CharacterSnackbarComponent } from './character.snackbar/character.snackbar.component';
-import { EditCharacterModalComponent } from './edit.character.modal/edit.character.modal.component';
-
-const routes: Routes = [{ path: '', component: CharacterListComponent }];
+import { CharacterRowComponent } from './character.row.component/character.row.component';
+import { CharacterSnackbarComponent } from './character.snackbar.component/character.snackbar.component';
+import { CharacterTableComponent } from './character.table.component/character.table.component.ts';
+import { CharactersRoutingModule } from './characters.routing.module';
 
 @NgModule({
   declarations: [
-    CharacterListComponent,
-    CharacterCardComponent,
+    CharacterTableComponent,
+    CharacterRowComponent,
     EditCharacterModalComponent,
     CharacterDetailComponent,
     CharacterSnackbarComponent,
+    CharacterListComponent,
+    CharacterCardComponent,
   ],
   imports: [
+    InfiniteScrollModule,
     MatSnackBarModule,
     MatCardModule,
     MatTableModule,
@@ -40,7 +45,7 @@ const routes: Routes = [{ path: '', component: CharacterListComponent }];
     CommonModule,
     MatListModule,
     MatCardModule,
-    RouterModule.forChild(routes),
+    CharactersRoutingModule,
   ],
   exports: [RouterModule],
 })

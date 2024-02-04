@@ -1,0 +1,42 @@
+<table mat-table [dataSource]="characters" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let character"> {{ character.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="species">
+    <th mat-header-cell *matHeaderCellDef> Especie </th>
+    <td mat-cell *matCellDef="let character"> {{ character.species }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let character"> {{ character.status }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <th mat-header-cell *matHeaderCellDef> Ubicación </th>
+    <td mat-cell *matCellDef="let character"> {{ character.location.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let character">
+      <button mat-icon-button (click)="openEditModal(character)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="openDetailModal(character)">
+        <mat-icon>search</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['name', 'species', 'status', 'location', 'actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name', 'species', 'status', 'location', 'actions'];"></tr>
+</table>
+<div class="button-container">
+  <button mat-icon-button (click)="loadMoreCharacters()">
+    <mat-icon>expand_more</mat-icon>
+  </button>
+</div>

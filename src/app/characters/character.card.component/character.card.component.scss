@@ -1,1 +1,17 @@
-
+mat-card {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  max-width: 300px;
+  gap: 1em;
+  padding: 1em;
+  img {
+    width: 100%;
+  }
+  mat-card-header {
+    padding: 0px;
+  }
+  mat-card-content {
+    padding: 0px;
+  }
+}

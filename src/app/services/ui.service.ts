@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Character } from 'src/app/models/character';
-import { CharacterDetailComponent } from '../characters/character.detail.modal/character.detail.modal.component';
-import { CharacterSnackbarComponent } from '../characters/character.snackbar/character.snackbar.component';
-import { EditCharacterModalComponent } from '../characters/edit.character.modal/edit.character.modal.component';
+import { CharacterDetailComponent } from '../characters/character.detail.modal.component/character.detail.modal.component';
+import { EditCharacterModalComponent } from '../characters/character.edit.modal.component/edit.character.modal.component';
+import { CharacterSnackbarComponent } from '../characters/character.snackbar.component/character.snackbar.component';
 
 @Injectable({
   providedIn: 'root',

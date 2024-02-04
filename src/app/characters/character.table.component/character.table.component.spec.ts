@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CharacterListComponent } from './character.list.component';
+import { CharacterTableComponent } from './character.table.component.ts.js';
 
 describe('CharacterListComponent', () => {
-  let component: CharacterListComponent;
-  let fixture: ComponentFixture<CharacterListComponent>;
+  let component: CharacterTableComponent;
+  let fixture: ComponentFixture<CharacterTableComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CharacterListComponent]
+      declarations: [CharacterTableComponent],
     });
-    fixture = TestBed.createComponent(CharacterListComponent);
+    fixture = TestBed.createComponent(CharacterTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

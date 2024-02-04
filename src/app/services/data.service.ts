@@ -12,7 +12,6 @@ import { AppStateService } from './app.state.service';
 })
 export class DataService {
   private url: string;
-  private totalCharacters: number = 0;
 
   constructor(
     private apiService: ApiCharacterRepositoryService,
@@ -22,10 +21,9 @@ export class DataService {
     this.url = 'https://rickandmortyapi.com/api/character';
   }
 
-  getCharacters(): void {
-    this.apiService.getAll(this.url).subscribe({
+  getCharacters(url?: string): void {
+    this.apiService.getAll(url ? url : this.url).subscribe({
       next: (data: CharacterQuery) => {
-        this.totalCharacters = data.info.count;
         this.state.setState(data);
       },
       error: (error) => {
@@ -43,7 +41,6 @@ export class DataService {
   getMoreCharacters(url: string): void {
     this.apiService.getAll(url).subscribe({
       next: (data: CharacterQuery) => {
-        this.totalCharacters = data.info.count;
         this.state.updateCharacters(data);
       },
       error: (error) => {
@@ -56,10 +53,6 @@ export class DataService {
         throw error;
       },
     });
-  }
-
-  getTotalCharacters(): number {
-    return this.totalCharacters;
   }
 
   editCharacter(updatedCharacter: Character): void {

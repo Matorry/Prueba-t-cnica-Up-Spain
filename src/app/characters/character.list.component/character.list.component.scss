@@ -1,6 +1,31 @@
-.button-container {
+mat-list {
+  width: 80vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  mat-list-item {
+    padding: 0px;
+    width: 30vw;
+    height: 40vh;
+    max-width: 300px;
+    background-color: #424242;
+    .buttonContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+  .upButton {
+    background-color: #424242;
+    color: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    top: 89%;
+    right: 5%;
+    cursor: pointer;
+  }
 }
