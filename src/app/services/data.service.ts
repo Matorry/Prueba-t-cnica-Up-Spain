@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiCharacterRepositoryService } from './api.character.repository.service';
 import { AppStateService } from './app.state.service';
 
@@ -7,10 +8,11 @@ import { AppStateService } from './app.state.service';
   providedIn: 'root',
 })
 export class DataService {
-  url: string;
+  private url: string;
   constructor(
     private apiService: ApiCharacterRepositoryService,
     private state: AppStateService,
+    private router: Router,
   ) {
     this.url = 'https://rickandmortyapi.com/api/character';
   }
@@ -26,6 +28,7 @@ export class DataService {
           errorMessage = `Error ${error.status}: ${error.statusText}`;
         }
         this.state.setErrorMessage(errorMessage);
+        this.router.navigate(['/error']);
         throw error;
       },
     });

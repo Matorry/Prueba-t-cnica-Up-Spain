@@ -16,6 +16,9 @@ export class AppStateService {
     return this.characterState$.asObservable();
   }
 
+  getState(): Observable<CharacterQuery> {
+    return this.characterState$.asObservable();
+  }
   setState(newState: Partial<CharacterQuery>): void {
     this.characterState$.next({ ...this.characterState$.value, ...newState });
   }

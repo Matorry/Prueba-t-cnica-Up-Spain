@@ -1,32 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Character } from 'src/app/models/character';
-import { ApiCharacterRepositoryService } from '../../services/api.character.repository.service';
+import { AppStateService } from 'src/app/services/app.state.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.scss'],
 })
-export class CharacterListComponent implements OnInit {
+export class CharacterListComponent implements OnInit, OnDestroy {
   characters: Character[] = [];
+  private stateCharacterSubscription: Subscription | undefined;
 
   constructor(
-    private apiService: ApiCharacterRepositoryService,
-    private router: Router,
+    private dataService: DataService,
+    private state: AppStateService,
   ) {}
 
   ngOnInit() {
-    this.apiService
-      .getAll('https://rickandmortyapi.com/api/character')
-      .subscribe({
-        next: (data) => {
-          this.characters = data.results;
-        },
-        error: (error) => {
-          console.error('Error fetching characters:', error);
-          this.router.navigate(['/error']);
-        },
-      });
+    this.dataService.getAllCharacters();
+    this.stateCharacterSubscription = this.state.getState().subscribe({
+      next: (data) => (this.characters = data.results),
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.stateCharacterSubscription) {
+      this.stateCharacterSubscription.unsubscribe();
+    }
+
+    this.characters = [];
   }
 }
