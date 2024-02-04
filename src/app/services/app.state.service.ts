@@ -34,4 +34,12 @@ export class AppStateService {
   setErrorMessage(message: string): void {
     return this.errorMessage$.next(message);
   }
+
+  updateCharacters(data: CharacterQuery) {
+    data.results = [
+      ...this.characterState$.getValue().results,
+      ...data.results,
+    ];
+    this.characterState$.next(data);
+  }
 }
