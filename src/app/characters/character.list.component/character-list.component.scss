@@ -1,0 +1,16 @@
+mat-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 90vw;
+  mat-list-item {
+    padding: 1em;
+    width: 30vw;
+    height: 40vh;
+    min-width: 300px;
+    max-width: 400px;
+  }
+}
