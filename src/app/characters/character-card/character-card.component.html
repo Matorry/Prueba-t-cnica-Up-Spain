@@ -1,0 +1,11 @@
+<mat-card *ngIf="character">
+  <mat-card-header>
+    <mat-card-title>{{ character.name }}</mat-card-title>
+    <mat-card-subtitle>{{ character.species }} - {{ character.status }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="character.image" alt="{{ character.name }}">
+  <mat-card-content>
+    <p>Location: {{ character.location.name }}</p>
+    <!-- Add more details as needed -->
+  </mat-card-content>
+</mat-card>
