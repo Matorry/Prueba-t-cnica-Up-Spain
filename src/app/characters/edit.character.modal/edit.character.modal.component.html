@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Edit Character</h2>
+<div mat-dialog-content>
+  <form [formGroup]="editForm" (ngSubmit)="onSaveChanges()">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Location" formControlName="location" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Status" formControlName="status" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onSaveChanges()">Save Changes</button>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>
