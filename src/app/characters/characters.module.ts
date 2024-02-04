@@ -8,11 +8,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterCardComponent } from './character.card.component/character-card.component';
+import { CharacterCardComponent } from './character.card.component/character.card.component';
 import { CharacterDetailComponent } from './character.detail.modal/character.detail.modal.component';
-import { CharacterListComponent } from './character.list.component/character-list.component';
+import { CharacterListComponent } from './character.list.component/character.list.component';
+import { CharacterSnackbarComponent } from './character.snackbar/character.snackbar.component';
 import { EditCharacterModalComponent } from './edit.character.modal/edit.character.modal.component';
 
 const routes: Routes = [{ path: '', component: CharacterListComponent }];
@@ -23,8 +25,11 @@ const routes: Routes = [{ path: '', component: CharacterListComponent }];
     CharacterCardComponent,
     EditCharacterModalComponent,
     CharacterDetailComponent,
+    CharacterSnackbarComponent,
   ],
   imports: [
+    MatSnackBarModule,
+    MatCardModule,
     MatTableModule,
     MatIconModule,
     MatButtonModule,

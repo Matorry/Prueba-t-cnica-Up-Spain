@@ -1,16 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { Character } from 'src/app/models/character';
 import { AppStateService } from 'src/app/services/app.state.service';
 import { DataService } from 'src/app/services/data.service';
 import { CharacterDetailComponent } from '../character.detail.modal/character.detail.modal.component';
+import { CharacterSnackbarComponent } from '../character.snackbar/character.snackbar.component';
 import { EditCharacterModalComponent } from '../edit.character.modal/edit.character.modal.component';
 
 @Component({
   selector: 'app-character-list',
-  templateUrl: './character-list.component.html',
-  styleUrls: ['./character-list.component.scss'],
+  templateUrl: './character.list.component.html',
+  styleUrls: ['./character.list.component.scss'],
 })
 export class CharacterListComponent implements OnInit, OnDestroy {
   characters: Character[] = [];
@@ -23,6 +25,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
     private dataService: DataService,
     private state: AppStateService,
     public dialog: MatDialog,
+    private snackBar: MatSnackBar,
   ) {}
 
   ngOnInit() {
@@ -83,6 +86,9 @@ export class CharacterListComponent implements OnInit, OnDestroy {
 
     // Añadir snack-bar
     dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.openSnackBar('Changes successfully applied', 1);
+      }
       this.editCharacter(result);
     });
   }
@@ -95,5 +101,12 @@ export class CharacterListComponent implements OnInit, OnDestroy {
 
   editCharacter(editedCharacter: Character): void {
     this.dataService.editCharacter(editedCharacter);
+  }
+
+  openSnackBar(message: string, durationInSeconds: number) {
+    this.snackBar.openFromComponent(CharacterSnackbarComponent, {
+      duration: durationInSeconds * 1000,
+      data: message,
+    });
   }
 }
