@@ -1,27 +1,31 @@
-# PruebaTecnicaUpSpain
+# Rick and Morty Characters App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+## Descripción
 
-## Development server
+Esta aplicación web permite explorar y gestionar personajes de la serie "Rick and Morty". Puedes ver detalles de los personajes, editar su información, buscarlos por nombre y elegir entre una vista de tabla o tarjetas.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instalación
 
-## Code scaffolding
+1. Clona este repositorio.
+2. Instala las dependencias utilizando `npm install`.
+3. Inicia la aplicación con `ng serve`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Uso
 
-## Build
+- Accede a la aplicación desde tu navegador.
+- Explora la lista de personajes.
+- Haz clic en un personaje para ver detalles.
+- Utiliza la barra de búsqueda para encontrar personajes por nombre.
+- Cambia entre las vistas de tabla y tarjetas según tus preferencias.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Despliegue
 
-## Running unit tests
+La aplicación se despliega automáticamente cuando se realiza un push a la rama principal (`main`). El despliegue se realiza en [Vercel](https://www.netlify.com/).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[![Vercel Status](https://prueba-t-cnica-up-spain-92xfmwzzk-rodrigomc.vercel.app)](https://vercel.com/rodrigomcm/prueba-t-cnica-up-spain/92xfmwzzk)
 
-## Running end-to-end tests
+## Tecnologías Utilizadas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular
+- TypeScript
+- Angular Material
