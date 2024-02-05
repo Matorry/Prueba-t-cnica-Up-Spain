@@ -1,0 +1,12 @@
+mat-card {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1em;
+  mat-card-header {
+    padding: 0px;
+  }
+  mat-card-content {
+    padding: 0px;
+  }
+}

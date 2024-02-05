@@ -1,0 +1,8 @@
+<div>
+  <span matSnackBarLabel LiveAnnouncer>
+    {{snackBarRef.containerInstance.snackBarConfig.data}}
+  </span>
+  <span matSnackBarActions>
+    <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">Close</button>
+  </span>
+</div>

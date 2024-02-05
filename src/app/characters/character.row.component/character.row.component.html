@@ -1,0 +1,9 @@
+<mat-card *ngIf="character">
+  <mat-card-header>
+    <mat-card-title>{{ character.name }}</mat-card-title>
+    <mat-card-subtitle>{{ character.species }} - {{ character.status }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Location:<br>{{ character.location.name }}</p>
+  </mat-card-content>
+</mat-card>

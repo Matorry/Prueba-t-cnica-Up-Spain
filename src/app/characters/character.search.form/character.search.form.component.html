@@ -1,0 +1,14 @@
+<!-- character.search.form.component.html -->
+
+<form [formGroup]="searchForm" class="form-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search by Character Name</mat-label>
+    <input matInput formControlName="characterName" placeholder="Enter character name" class="input"
+      [matAutocomplete]="auto" />
+    <mat-autocomplete [displayWith]="displayFn" #auto="matAutocomplete">
+      <mat-option *ngFor="let character of characters" (click)="selectCharacter(character)">
+        {{ character.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

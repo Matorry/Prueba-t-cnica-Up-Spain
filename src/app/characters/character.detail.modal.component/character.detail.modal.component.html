@@ -1,0 +1,12 @@
+<mat-card mat-dialog-content *ngIf="data">
+  <mat-card-header>
+    <mat-card-title>{{ data.name }}</mat-card-title>
+    <mat-card-subtitle>{{ data.species }} - {{ data.status }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="data.image" alt="{{ data.name }}">
+  <mat-card-content>
+    <p>Location:<br>{{ data.location.name }}</p>
+    <p>Origin:<br>{{ data.origin.name }}</p>
+    <p>Gender: <br>{{ data.gender }}</p>
+  </mat-card-content>
+</mat-card>
