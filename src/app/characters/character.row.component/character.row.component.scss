@@ -1,11 +1,7 @@
 mat-card {
   width: 300px;
   margin: 20px;
-
-  @media (max-width: 600px) {
-    width: 100%;
-  }
-
+  max-width: 800px;
   mat-card-title,
   mat-card-subtitle,
   mat-card-content {
