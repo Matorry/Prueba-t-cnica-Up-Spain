@@ -3,3 +3,15 @@ mat-toolbar {
   flex-direction: row;
   justify-content: space-between;
 }
+
+mat-toolbar {
+  @media (width < 768px) {
+    font-size: 0.9em;
+  }
+  @media (width < 460px) {
+    font-size: 0.7em;
+  }
+  @media (width < 395px) {
+    font-size: 0.7em;
+  }
+}
