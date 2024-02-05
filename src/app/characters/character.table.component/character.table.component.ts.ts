@@ -1,4 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Character } from 'src/app/models/character';
@@ -17,8 +24,11 @@ export class CharacterTableComponent implements OnInit, OnDestroy {
   private loadedCharactersCount = 10;
   private paginatorController = false;
   nextQuery: string | null = null;
+  bottomRef!: ElementRef;
 
   constructor(
+    @Inject(DOCUMENT)
+    private document: Document,
     private dataService: DataService,
     private state: AppStateService,
     public dialog: MatDialog,

@@ -6,7 +6,7 @@ import { CharacterTableComponent } from './character.table.component/character.t
 const routes: Routes = [
   { path: 'cards', component: CharacterListComponent },
   { path: 'table', component: CharacterTableComponent },
-  { path: '', redirectTo: 'cards', pathMatch: 'full' },
+  { path: '', redirectTo: 'table', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -1,9 +1,11 @@
+<app-character-search-form></app-character-search-form>
 <mat-list infiniteScroll (scrolled)="onScrollDown()">
+
   <mat-list-item *ngFor="let character of characters">
     <app-character-card [character]="character" (openEditModal)="openEditModal(character)"></app-character-card>
     <div class="buttonContainer">
-      <button mat-icon-button (click)="openEditModal(character)">
-        <mat-icon>star</mat-icon>
+      <button mat-icon-button (click)="openDetailModal(character)">
+        <mat-icon>search</mat-icon>
       </button>
       <button mat-icon-button (click)="openEditModal(character)">
         <mat-icon>edit</mat-icon>

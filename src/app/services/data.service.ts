@@ -72,4 +72,21 @@ export class DataService {
       }
     });
   }
+
+  searchCharactersByName(characterName: string) {
+    const url = `${this.url}/?name=${characterName}`;
+    this.apiService.getByName(url).subscribe({
+      next: (data) => {
+        this.state.setSearchCharacterState(data);
+      },
+      error: (error) => {
+        let errorMessage = 'Ocurrió un error al obtener los personajes.';
+        if (error instanceof HttpErrorResponse) {
+          errorMessage = `Error ${error.status}: ${error.statusText}`;
+        }
+        this.state.setErrorMessage(errorMessage);
+        throw error;
+      },
+    });
+  }
 }

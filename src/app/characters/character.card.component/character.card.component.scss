@@ -2,11 +2,12 @@ mat-card {
   display: flex;
   flex-direction: column;
   width: 70vw;
-  max-width: 300px;
+  max-width: 400px;
+  min-width: 250px;
   gap: 1em;
   padding: 1em;
   img {
-    width: 100%;
+    width: 200px;
   }
   mat-card-header {
     padding: 0px;

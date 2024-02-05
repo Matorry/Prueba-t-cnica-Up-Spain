@@ -64,6 +64,10 @@ export class CharacterListComponent implements OnInit {
     this.dataService.editCharacter(editedCharacter);
   }
 
+  openDetailModal(character: Character): void {
+    this.uiService.openDetailModal(character);
+  }
+
   openSnackBar(message: string, durationInSeconds: number) {
     this.uiService.openSnackBar(message, durationInSeconds);
   }

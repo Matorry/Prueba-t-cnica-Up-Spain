@@ -1,5 +1,5 @@
 mat-list {
-  width: 80vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -9,8 +9,9 @@ mat-list {
   mat-list-item {
     padding: 0px;
     width: 30vw;
-    height: 40vh;
     max-width: 300px;
+    min-width: 270px;
+    height: 410px;
     background-color: #424242;
     .buttonContainer {
       display: flex;
@@ -21,11 +22,11 @@ mat-list {
     }
   }
   .upButton {
-    background-color: #424242;
+    background-color: #c2185b;
     color: rgba(255, 255, 255, 0.7);
     position: fixed;
-    top: 89%;
-    right: 5%;
+    top: 93%;
+    right: 3%;
     cursor: pointer;
   }
 }

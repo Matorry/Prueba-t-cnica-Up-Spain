@@ -9,6 +9,9 @@ export class AppStateService {
   private readonly characterState$ = new BehaviorSubject<CharacterQuery>(
     {} as CharacterQuery,
   );
+  private readonly searchCharacterState$ = new BehaviorSubject<CharacterQuery>(
+    {} as CharacterQuery,
+  );
   private readonly isOpenModal$ = new BehaviorSubject<boolean>(false);
   private readonly errorMessage$ = new BehaviorSubject<string>('');
 
@@ -41,5 +44,16 @@ export class AppStateService {
       ...data.results,
     ];
     this.characterState$.next(data);
+  }
+
+  getSearchCharacterState(): Observable<CharacterQuery> {
+    return this.searchCharacterState$.asObservable();
+  }
+  setSearchCharacterState(newState?: CharacterQuery): void {
+    if (!newState) {
+      this.searchCharacterState$.next({} as CharacterQuery);
+      return;
+    }
+    this.searchCharacterState$.next(newState);
   }
 }

@@ -1,0 +1,10 @@
+form {
+  padding-top: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mat-form-field {
+    min-width: 300px;
+  }
+}

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -17,6 +18,7 @@ import { CharacterDetailComponent } from './character.detail.modal.component/cha
 import { EditCharacterModalComponent } from './character.edit.modal.component/edit.character.modal.component';
 import { CharacterListComponent } from './character.list.component/character.list.component';
 import { CharacterRowComponent } from './character.row.component/character.row.component';
+import { CharacterSearchFormComponent } from './character.search.form/character.search.form.component';
 import { CharacterSnackbarComponent } from './character.snackbar.component/character.snackbar.component';
 import { CharacterTableComponent } from './character.table.component/character.table.component.ts';
 import { CharactersRoutingModule } from './characters.routing.module';
@@ -30,8 +32,10 @@ import { CharactersRoutingModule } from './characters.routing.module';
     CharacterSnackbarComponent,
     CharacterListComponent,
     CharacterCardComponent,
+    CharacterSearchFormComponent,
   ],
   imports: [
+    MatAutocompleteModule,
     InfiniteScrollModule,
     MatSnackBarModule,
     MatCardModule,
