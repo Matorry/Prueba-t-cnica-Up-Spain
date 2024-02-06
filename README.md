@@ -20,7 +20,7 @@ Esta aplicación web permite explorar y gestionar personajes de la serie "Rick a
 
 ## Despliegue
 
-La aplicación se despliega automáticamente cuando se realiza un push a la rama principal (`main`). El despliegue se realiza en [Vercel](https://www.netlify.com/).
+La aplicación se despliega automáticamente cuando se realiza un push a la rama principal (`main`). El despliegue se realiza en [Vercel]( https://prueba-t-cnica-up-spain.vercel.app/characters/table).
 
 [![Vercel Status](https://prueba-t-cnica-up-spain-92xfmwzzk-rodrigomc.vercel.app)](https://vercel.com/rodrigomcm/prueba-t-cnica-up-spain/92xfmwzzk)
 
